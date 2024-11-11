@@ -1,20 +1,62 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+<ion-header>
+  <ion-toolbar color="white">
+    <!-- Logo a la izquierda -->
+    <ion-buttons slot="start">
+      <img src="assets/images/MEDI.png" alt="MediApp Logo" class="logo">
+    </ion-buttons>
+
+    <!-- Barra de búsqueda en el centro -->
+    <ion-searchbar [(ngModel)]="searchText" debounce="300" showClearButton="focus" placeholder="Buscar..." class="searchbar"></ion-searchbar>
+
+    <!-- Botones a la derecha -->
+    <ion-buttons slot="end" style="display: flex; align-items: center;">
+      <ion-button (click)="login()">
+        <ion-icon name="log-in-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="openMap()">
+        <ion-icon name="location-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="openHelp()">
+        <ion-icon name="help-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+
+
+<ion-content>
+  <app-camera></app-camera>
+  <section id="about-us">
+    <ion-slides [options]="slideOpts" class="slider">
+      <ion-slide>
+        <ion-img src="assets/images/portada1.png" alt="Portada 1" class="slider-img"></ion-img>
+      </ion-slide>
+      <ion-slide>
+        <ion-img src="assets/images/portada2.png" alt="Portada 2" class="slider-img"></ion-img>
+      </ion-slide>
+      <ion-slide>
+        <ion-img src="assets/images/portada3.png" alt="Portada 3" class="slider-img"></ion-img>
+      </ion-slide>
+      <ion-slide>
+        <ion-img src="assets/images/portada4.png" alt="Portada 4" class="slider-img"></ion-img>
+      </ion-slide>
+    </ion-slides>
+  </section>
+
+
+  <section id="about-us">
+    <ion-card class="about-card">
+      <ion-card-header>
+        <ion-card-title class="about-title">Sobre MediApp</ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="about-content">
+        <p>
+          MediApp es una aplicación diseñada para facilitar la gestión de tus citas médicas. ¡Todo más fácil con un clic!
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </section>  
 </ion-content>
+
